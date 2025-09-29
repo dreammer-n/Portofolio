@@ -2,89 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="icon" type="image/png" href="assets/favicon.png">  
-    <link rel="stylesheet" href="CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="CSS/style.css"> 
     <title>NateYuar</title>
 </head>
 <body>
-    
-      
-</body>
-        <main class="bento-grid">
+    <div class="container">
+        <div class="bento-grid">
             <!-- About Me -->
-            <section class="bento about">
-                <div class="avatar">FM</div>
-                <h2>Hi 🖐️ I'm Nate</h2>
-                <div>
-                    <h2></h2>
-                    <p class="location">Ethiopia</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error odio ipsa commodi temporibus saepe ab voluptatibus deserunt qui autem nemo, vitae, eveniet, a non sapiente voluptas officia ex soluta eligendi.</p>
+            <div class="bento-item large">
+                <div class="section-title">
+                    <div class="avatar">Ni</div>
+                    About Me
                 </div>
-            </section>
+                <div class="location">
+                    <i>📍</i> Ethiopia
+                </div>
+                <div class="bio">
+                    I'm Nathaniel,a detail oriented frontend dev with 3 years of experience.
+                </div>
+                <div class="skills">
+                    <span class="skill-tag">HubSpot CMS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </div>
 
             <!-- Experience -->
-            <section class="bento experience">
-                <h2>Experience</h2>
-                <div class="job">
-                    <div class="job-icon">TC</div>
-                    <div>
-                        <strong></strong><br>
-                        <span></span>
+            <div class="bento-item medium">
+                <div class="section-title">
+                    <i>💼</i> Experience
+                </div>
+                <div class="experience-item">
+                    <div style="display: flex; align-items: center;">
+                        <div class="company-logo">TC</div>
+                        <div>
+                            <div class="job-title">Senior Full Stack Developer</div>
+                            <div class="company-name">TechCorp Inc.</div>
+                            <div class="date">2022 - Present</div>
+                        </div>
                     </div>
                 </div>
-                <div class="job">
-                    <div class="job-icon">ST</div>
-                    <div>
-                        <strong>Full Stack Developer</strong><br>
-                        <span>StartupXYZ · 2020 - 2022</span>
+                <div class="experience-item">
+                    <div style="display: flex; align-items: center;">
+                        <div class="company-logo">ST</div>
+                        <div>
+                            <div class="job-title">Full Stack Developer</div>
+                            <div class="company-name">StartupXYZ</div>
+                            <div class="date">2020 - 2022</div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Available -->
-            <section class="bento available">
-                <h2>Available</h2>
-                <p>Open to new opportunities</p>
-                <div class="stats">
-                    <div><span>Projects</span><strong>25+</strong></div>
-                    <div><span>Experience</span><strong>5 years</strong></div>
+            <!-- Availability -->
+            <div class="bento-item small">
+                <div class="section-title">
+                    <i>🟢</i> Available
                 </div>
-            </section>
+                <div style="margin-bottom: 15px;">Open to new opportunities</div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">25+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Connect -->
-            <section class="bento connect">
-                <h2>Connect</h2>
-                <ul>
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Email</a></li>
-                </ul>
-            </section>
+            <div class="bento-item small">
+                <div class="section-title">
+                    <i>🔗</i> Connect
+                </div>
+                <div class="connect-list">
+                    <div class="connect-item">
+                        <i>🐱</i> GitHub
+                    </div>
+                    <div class="connect-item">
+                        <i>💼</i> LinkedIn
+                    </div>
+                    <div class="connect-item">
+                        <i>🐦</i> Twitter
+                    </div>
+                    <div class="connect-item">
+                        <i>✉️</i> Email
+                    </div>
+                </div>
+            </div>
 
             <!-- Selected Projects -->
-            <section class="bento projects">
-                <h2>Selected Projects</h2>
-                <div class="project">
-                    <div>
-                        <strong>E-Commerce Platform</strong>
-                        <p>Modern e-commerce platform with React, Node.js, and PostgreSQL featuring payment processing and real-time inventory.</p>
-                        <div class="tags">
-                            <span>React</span><span>Node.js</span><span>PostgreSQL</span>
-                        </div>
-                    </div>
-                    <a class="external" href="#" title="View project">↗</a>
+            <div class="bento-item medium">
+                <div class="section-title">
+                    <i>🎯</i> Selected Projects
                 </div>
                 <div class="project">
-                    <div>
-                        <strong>Task Management App</strong>
-                        <p>Collaborative task management with real-time updates, drag-and-drop functionality, and team features.</p>
-                        <div class="tags">
-                            <span>Next.js</span><span>TypeScript</span><span>Socket.io</span>
-                        </div>
+                    <div class="project-title">E-Commerce Platform</div>
+                    <div class="project-desc">
+                        Modern e-commerce platform with React, Node.js, and PostgreSQL featuring payment processing and real-time inventory.
                     </div>
-                    <a class="external" href="#" title="View project">↗</a>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-btn">
+                            <i>↗️</i>
+                        </button>
+                    </div>
                 </div>
-            </section>
-        </main>
+                <div class="project">
+                    <div class="project-title">Task Management App</div>
+                    <div class="project-desc">
+                        Collaborative task management with real-time updates, drag-and-drop functionality, and team features.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Next.js</span>
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">Socket.io</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-btn">
+                            <i>↗️</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
