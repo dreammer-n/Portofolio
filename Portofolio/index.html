@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
     <title>Nate Itsu</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
-    <div class="container">
+   <div class="container">
         <div class="bento-grid">
             <!-- About Me -->
             <div class="bento-item large">
@@ -16,25 +17,31 @@
                     <div class="avatar">
                         <img src="assets/profile.png" alt="Profile Picture">
                     </div>
-                      Hi <span class="wave-emoji">🖐️</span>, I'm Nathaniel Itsu
+                    Hi <span class="wave-emoji">🖐️</span>, I'm Nathaniel Itsu
                 </div>
                 <div class="location">
                     <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    <span class="location-text">Philippines</span>
+                    <span class="location-text">Ethiopia</span>
                 </div>
                 <div class="bio">
-                    I’m a Full-Stack Developer with 5 years of experience, specializing in frontend development and expanding my expertise in backend technologies. I build <span class="detail-text">detail</span> -oriented websites and dynamic web applications. Currently, I’m developing my own SaaS project while seeking new opportunities.
+                    I'm a Full-Stack Developer with 5 years of experience, specializing in frontend development and expanding my expertise in backend technologies. I build <span class="detail-text">detail</span>-oriented websites and dynamic web applications. Currently, I'm developing my own SaaS project while seeking new opportunities.
                 </div>
-
-
+                <div class="skills">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                </div>
             </div>
 
             <!-- Experience -->
             <div class="bento-item medium">
                 <div class="section-title">
-                    <i>💼</i> Experience
+                    <i class="fas fa-briefcase"></i> Experience
                 </div>
                 <div class="experience-item">
                     <div style="display: flex; align-items: center;">
@@ -61,9 +68,9 @@
             <!-- Availability -->
             <div class="bento-item small">
                 <div class="section-title">
-                    <i>🟢</i> Available
+                    <i class="fas fa-circle text-green-400"></i> Available
                 </div>
-                <div style="margin-bottom: 15px;">Open to new opportunities</div>
+                <div style="margin-bottom: 18px; font-weight: 500;">Open to new opportunities</div>
                 <div class="stats">
                     <div class="stat-item">
                         <div class="stat-value">25+</div>
@@ -79,20 +86,20 @@
             <!-- Connect -->
             <div class="bento-item small">
                 <div class="section-title">
-                    <i>🔗</i> Connect
+                    <i class="fas fa-link"></i> Connect
                 </div>
                 <div class="connect-list">
                     <div class="connect-item">
-                        <i><img src="assets/github.svg"width="20px" height="20px" alt=""></i> GitHub
+                        <i class="fab fa-github"></i> GitHub
                     </div>
                     <div class="connect-item">
-                        <i><img src="assets/instagram.svg"width="20px" height="20px" alt=""></i> Instagram
+                        <i class="fab fa-instagram"></i> Instagram
                     </div>
                     <div class="connect-item">
-                        <i><img src="assets/twitter.svg"width="20px" height="20px" alt=""></i> Twitter
+                        <i class="fab fa-reddit"></i> Reddit
                     </div>
                     <div class="connect-item">
-                        <i>✉️</i> Email
+                        <i class="fas fa-envelope"></i> Email
                     </div>
                 </div>
             </div>
@@ -100,7 +107,7 @@
             <!-- Selected Projects -->
             <div class="bento-item medium">
                 <div class="section-title">
-                    <i>🎯</i> Selected Projects
+                    <i class="fas fa-star"></i> Selected Projects
                 </div>
                 <div class="project">
                     <div class="project-title">E-Commerce Platform</div>
@@ -114,7 +121,7 @@
                     </div>
                     <div class="project-actions">
                         <button class="action-btn">
-                            <i>↗️</i>
+                            <i class="fas fa-external-link-alt"></i>
                         </button>
                     </div>
                 </div>
@@ -130,7 +137,7 @@
                     </div>
                     <div class="project-actions">
                         <button class="action-btn">
-                            <i>↗️</i>
+                            <i class="fas fa-external-link-alt"></i>
                         </button>
                     </div>
                 </div>
@@ -145,10 +152,10 @@
             const profileImg = document.getElementById('profile-img');
             
             // Set initial image (front view)
-            profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop';
+            profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop';
             
             // Create second image for hover (side view)
-            const sideViewImg = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop&rot=90';
+            const sideViewImg = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop&rot=90';
             
             // Add hover effect
             avatar.addEventListener('mouseenter', function() {
@@ -156,7 +163,7 @@
             });
             
             avatar.addEventListener('mouseleave', function() {
-                profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop';
+                profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop';
             });
         });
     </script>
