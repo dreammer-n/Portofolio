@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="stylesheet" href="CSS/style.css"> 
-    <title>NateYuar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Nate Itsu</title>
+
 </head>
 <body>
     <div class="container">
@@ -12,21 +13,22 @@
             <!-- About Me -->
             <div class="bento-item large">
                 <div class="section-title">
-                    <div class="avatar">Ni</div>
-                    About Me
+                    <div class="avatar">
+                        <img src="assets/profile.png" alt="Profile Picture">
+                    </div>
+                      Hi <span class="wave-emoji">🖐️</span>, I'm Nathaniel Itsu
                 </div>
                 <div class="location">
-                    <i>📍</i> Ethiopia
+                    <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span class="location-text">Philippines</span>
                 </div>
                 <div class="bio">
-                    I'm Nathaniel,a detail oriented frontend dev with 3 years of experience.
+                    I’m a Full-Stack Developer with 5 years of experience, specializing in frontend development and expanding my expertise in backend technologies. I build <span class="detail-text">detail</span> -oriented websites and dynamic web applications. Currently, I’m developing my own SaaS project while seeking new opportunities.
                 </div>
-                <div class="skills">
-                    <span class="skill-tag">HubSpot CMS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js</span>
-                </div>
+
+
             </div>
 
             <!-- Experience -->
@@ -81,13 +83,13 @@
                 </div>
                 <div class="connect-list">
                     <div class="connect-item">
-                        <i>🐱</i> GitHub
+                        <i><img src="assets/github.svg"width="20px" height="20px" alt=""></i> GitHub
                     </div>
                     <div class="connect-item">
-                        <i>💼</i> LinkedIn
+                        <i><img src="assets/instagram.svg"width="20px" height="20px" alt=""></i> Instagram
                     </div>
                     <div class="connect-item">
-                        <i>🐦</i> Twitter
+                        <i><img src="assets/twitter.svg"width="20px" height="20px" alt=""></i> Twitter
                     </div>
                     <div class="connect-item">
                         <i>✉️</i> Email
@@ -135,5 +137,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Add profile images and hover effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const avatar = document.querySelector('.avatar');
+            const profileImg = document.getElementById('profile-img');
+            
+            // Set initial image (front view)
+            profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop';
+            
+            // Create second image for hover (side view)
+            const sideViewImg = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop&rot=90';
+            
+            // Add hover effect
+            avatar.addEventListener('mouseenter', function() {
+                profileImg.src = sideViewImg;
+            });
+            
+            avatar.addEventListener('mouseleave', function() {
+                profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop';
+            });
+        });
+    </script>
 </body>
 </html>

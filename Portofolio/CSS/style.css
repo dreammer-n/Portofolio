@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
-
- :root {
+:root {
             --primary-bg: #1e1e20;
             --secondary-bg: #252527;
             --text-color: #ffffff;
@@ -108,6 +105,40 @@
             font-weight: bold;
             font-size: 1.2rem;
             margin-right: 10px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .avatar:hover::before {
+            border: 2px solid #6c5ce7;
+            box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
+        }
+
+        .avatar:hover img {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .location {
@@ -117,10 +148,52 @@
             font-size: 0.9rem;
             opacity: 0.7;
             margin-bottom: 15px;
+            position: relative;
         }
 
-        .location i {
+        .location-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-color);
+            transition: transform 0.2s ease;
+        }
+
+        .location-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .location-text {
+            display: none;
+        }
+
+        .location:hover .location-text {
+            display: block;
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 4px 8px;
+            border-radius: 4px;
             font-size: 0.8rem;
+            white-space: nowrap;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            animation: fadeIn 0.2s ease;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
         }
 
         .bio {
@@ -290,6 +363,46 @@
         .action-btn i {
             font-size: 1rem;
         }
+        /* Wave Emoji Animation */
+        .wave-emoji {
+            display: inline-block;
+            transition: transform 0.1s ease;
+        }
+
+        .wave-emoji:hover {
+            animation: wave 1.0s ease-in-out;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(-25deg); }
+            40% { transform: rotate(20deg); }
+            60% { transform: rotate(-15deg); }
+            80% { transform: rotate(10deg); }
+        }
+        /* Detail Text Animation */
+          .detail-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .detail-text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }   .detail-text:hover::after {
+            width: 100%;
+        }
+
+        .detail-text:hover {
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
@@ -364,5 +477,18 @@
             
             .connect-item {
                 padding: 8px;
+            }
+            
+            .location {
+                margin-bottom: 10px;
+            }
+            
+            .location:hover .location-text {
+                left: 22px;
+                font-size: 0.75rem;
+                padding: 3px 6px;
+            }
+            .wave-emoji {
+                transform: scale(1.2);
             }
         }
