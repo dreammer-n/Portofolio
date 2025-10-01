@@ -172,11 +172,11 @@
 
         .avatar:hover::before {
             border: 2px solid var(--accent-color);
-            box-shadow: 0 0 20px rgba(126, 108, 255, 0.6);
+            box-shadow: 0 0 20px #6ce2ff;
         }
 
         .avatar:hover img {
-            transform: scale(1.15) rotate(8deg);
+            transform: scale(1.05) ;
         }
 
         .location {
@@ -249,10 +249,10 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, rgba(126, 108, 255, 0.15), rgba(93, 77, 255, 0.15));
+            background: linear-gradient(135deg, rgba(144, 131, 243, 0.15), rgba(55, 39, 230, 0.15));
             color: var(--accent-color);
             padding: 6px 12px;
-            border-radius: 24px;
+            border-radius: 20px;
             font-size: 0.85rem;
             border: 1px solid rgba(126, 108, 255, 0.25);
             font-weight: 500;
@@ -260,9 +260,9 @@
         }
 
         .skill-tag:hover {
-            transform: translateY(-1px);
-            background: linear-gradient(135deg, rgba(126, 108, 255, 0.25), rgba(93, 77, 255, 0.25));
-            border-color: rgba(126, 108, 255, 0.4);
+            transform: translateY(-0.4px);
+            background: linear-gradient(135deg, rgba(160, 108, 255, 0.486), rgba(92, 77, 255, 0.295));
+            border-color: rgba(112, 107, 150, 0.445);
         }
 
         .experience-item {
@@ -310,7 +310,6 @@
             opacity: 0.7;
             font-weight: 400;
         }
-
         .stats {
             display: flex;
             justify-content: space-between;
@@ -454,7 +453,7 @@
         }
 
         .wave-emoji:hover {
-            animation: wave 1.0s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: wave 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes wave {
@@ -490,6 +489,7 @@
         .detail-text:hover {
             color: var(--accent-color);
             transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scalex(1.1);
         }
 
         /* Responsive Design */
