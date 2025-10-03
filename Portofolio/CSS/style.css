@@ -1,4 +1,4 @@
-:root {
+        :root {
             --primary-bg: #0f0f11;
             --secondary-bg: #1a1a1d;
             --text-color: #ffffff;
@@ -74,6 +74,8 @@
             overflow: hidden;
             position: relative;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
         }
 
         .bento-item::before {
@@ -89,6 +91,10 @@
                 rgba(126, 108, 255, 0.1), 
                 rgba(93, 77, 255, 0.1), 
                 rgba(126, 108, 255, 0.1));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
             mask-composite: exclude;
             pointer-events: none;
         }
@@ -131,6 +137,12 @@
             background-clip: text;
         }
 
+        .avatar-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
         .avatar {
             width: 60px;
             height: 60px;
@@ -147,6 +159,48 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 12px rgba(126, 108, 255, 0.2);
+        }
+
+        .availability-indicator {
+            position: absolute;
+            bottom: 2px;
+            left: -2px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            border: 2px solid var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: help;
+            transition: all 0.2s ease;
+        }
+
+        .availability-text {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .availability-indicator:hover .availability-text {
+            display: block;
+        }
+
+        .availability-indicator:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(74, 222, 128, 0.4);
         }
 
         .avatar img {
@@ -172,11 +226,11 @@
 
         .avatar:hover::before {
             border: 2px solid var(--accent-color);
-            box-shadow: 0 0 20px #6ce2ff;
+            box-shadow: 0 0 20px rgba(126, 108, 255, 0.6);
         }
 
         .avatar:hover img {
-            transform: scale(1.05) ;
+            transform: scale(1.15) rotate(8deg);
         }
 
         .location {
@@ -246,13 +300,14 @@
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 18px;
+            margin-bottom: 30px;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, rgba(144, 131, 243, 0.15), rgba(55, 39, 230, 0.15));
+            background: linear-gradient(135deg, rgba(126, 108, 255, 0.15), rgba(93, 77, 255, 0.15));
             color: var(--accent-color);
             padding: 6px 12px;
-            border-radius: 20px;
+            border-radius: 24px;
             font-size: 0.85rem;
             border: 1px solid rgba(126, 108, 255, 0.25);
             font-weight: 500;
@@ -260,9 +315,31 @@
         }
 
         .skill-tag:hover {
-            transform: translateY(-0.4px);
-            background: linear-gradient(135deg, rgba(160, 108, 255, 0.486), rgba(92, 77, 255, 0.295));
-            border-color: rgba(112, 107, 150, 0.445);
+            transform: translateY(-1px);
+            background: linear-gradient(135deg, rgba(126, 108, 255, 0.25), rgba(93, 77, 255, 0.25));
+            border-color: rgba(126, 108, 255, 0.4);
+        }
+
+        .connect-icons {
+            display: flex;
+            gap: 24px;
+            margin-top: auto;
+            justify-content: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .connect-icon {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.8;
+        }
+
+        .connect-icon:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            text-shadow: 0 4px 12px rgba(126, 108, 255, 0.3);
         }
 
         .experience-item {
@@ -310,10 +387,13 @@
             opacity: 0.7;
             font-weight: 400;
         }
+
         .stats {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
 
         .stat-item {
@@ -335,41 +415,6 @@
             font-size: 0.85rem;
             opacity: 0.8;
             font-weight: 500;
-        }
-
-        .connect-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 18px;
-        }
-
-        .connect-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 12px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 500;
-        }
-
-        .connect-item:hover {
-            background-color: var(--hover-bg);
-            transform: translateX(4px);
-        }
-
-        .connect-item i {
-            font-size: 1.2rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
         }
 
         .project {
@@ -453,7 +498,7 @@
         }
 
         .wave-emoji:hover {
-            animation: wave 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: wave 1.0s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes wave {
@@ -489,7 +534,6 @@
         .detail-text:hover {
             color: var(--accent-color);
             transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scalex(1.1);
         }
 
         /* Responsive Design */
@@ -514,6 +558,27 @@
             
             h1 {
                 font-size: 2.4rem;
+            }
+            
+            .avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+            
+            .availability-indicator {
+                width: 16px;
+                height: 16px;
+                bottom: -2px;
+                left: -2px;
+            }
+            
+            .connect-icons {
+                gap: 20px;
+            }
+            
+            .connect-icon {
+                font-size: 1.3rem;
             }
         }
 
@@ -540,9 +605,14 @@
             }
             
             .avatar {
-                width: 50px;
-                height: 50px;
-                font-size: 1.1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .availability-indicator {
+                width: 14px;
+                height: 14px;
             }
             
             .bio {
@@ -555,6 +625,18 @@
             
             header {
                 padding: 32px 16px 24px;
+            }
+            
+            .connect-icons {
+                gap: 18px;
+            }
+            
+            .connect-icon {
+                font-size: 1.2rem;
+            }
+            
+            .skills {
+                margin-bottom: 25px;
             }
         }
 
@@ -580,14 +662,14 @@
             }
             
             .avatar {
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
             }
             
-            .connect-item {
-                padding: 10px 12px;
-                gap: 10px;
+            .availability-indicator {
+                width: 12px;
+                height: 12px;
             }
             
             .location {
@@ -606,5 +688,17 @@
             
             .stat-value {
                 font-size: 1.5rem;
+            }
+            
+            .connect-icons {
+                gap: 16px;
+            }
+            
+            .connect-icon {
+                font-size: 1.1rem;
+            }
+            
+            .skills {
+                margin-bottom: 20px;
             }
         }

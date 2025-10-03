@@ -1,21 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
     <title>Nate Itsu</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
 
+    </style>
 </head>
 <body>
-   <div class="container">
+    <div class="container">
         <div class="bento-grid">
             <!-- About Me -->
             <div class="bento-item large">
                 <div class="section-title">
-                    <div class="avatar">
-                        <img src="assets/profile.png" alt="Profile Picture">
+                    <div class="avatar-container">
+                        <div class="avatar">
+                            <img src="assets/profile2.png"></div>
+                        <div class="availability-indicator">
+                            <div class="availability-text">Open to new opportunities</div>
+                        </div>
                     </div>
                     Hi <span class="wave-emoji">🖐️</span>, I'm Nathaniel Itsu
                 </div>
@@ -35,6 +42,20 @@
                     <span class="skill-tag">Supabase</span>
                     <span class="skill-tag">Next.js</span>
                     <span class="skill-tag">Tailwind CSS</span>
+                </div>
+                <div class="connect-icons">
+                    <a href="#" class="connect-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="connect-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="connect-icon" aria-label="Reddit">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                    <a href="#" class="connect-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
 
@@ -63,14 +84,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Availability -->
-            <div class="bento-item small">
-                <div class="section-title">
-                    <i class="fas fa-circle text-green-400"></i> Available
-                </div>
-                <div style="margin-bottom: 18px; font-weight: 500;">Open to new opportunities</div>
                 <div class="stats">
                     <div class="stat-item">
                         <div class="stat-value">10+</div>
@@ -79,27 +92,6 @@
                     <div class="stat-item">
                         <div class="stat-value">5</div>
                         <div class="stat-label">Years Experience</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Connect -->
-            <div class="bento-item small">
-                <div class="section-title">
-                    <i class="fas fa-link"></i> Connect
-                </div>
-                <div class="connect-list">
-                    <div class="connect-item">
-                        <i class="fab fa-github"></i>GitHub
-                    </div>
-                    <div class="connect-item">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </div>
-                    <div class="connect-item">
-                        <i class="fab fa-reddit"></i> Reddit
-                    </div>
-                    <div class="connect-item">
-                        <i class="fas fa-envelope"></i> Email
                     </div>
                 </div>
             </div>
@@ -120,7 +112,7 @@
                         <span class="project-tag">PostgreSQL</span>
                     </div>
                     <div class="project-actions">
-                        <button class="action-btn">
+                        <button class="action-btn" aria-label="View project">
                             <i class="fas fa-external-link-alt"></i>
                         </button>
                     </div>
@@ -136,7 +128,7 @@
                         <span class="project-tag">Socket.io</span>
                     </div>
                     <div class="project-actions">
-                        <button class="action-btn">
+                        <button class="action-btn" aria-label="View project">
                             <i class="fas fa-external-link-alt"></i>
                         </button>
                     </div>
