@@ -7,19 +7,32 @@
     <title>Nate Itsu</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
 
     </style>
 </head>
 <body>
     <div class="container">
+        <nav class="site-nav" aria-label="Primary">
+            <div class="brand">
+                <img class="brand-logo" src="assets/favicon2.png" alt="">
+                <span class="brand-name">Nate Itsu</span>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <i class="fas fa-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+        </nav>
         <div class="bento-grid">
             <!-- About Me -->
             <div class="bento-item large">
                 <div class="section-title">
                     <div class="avatar-container">
                         <div class="avatar">
-                            <img src="assets/profile2.png"></div>
+                            <img id="profile-img" src="assets/profile2.png"></div>
                         <div class="availability-indicator">
                             <div class="availability-text">Open to new opportunities</div>
                         </div>
@@ -138,25 +151,37 @@
     </div>
 
     <script>
-        // Add profile images and hover effect
         document.addEventListener('DOMContentLoaded', function() {
+            // Theme: initialize from localStorage or OS preference
+            const root = document.documentElement;
+            const savedTheme = localStorage.getItem('theme');
+            const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            const initialTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+            root.setAttribute('data-theme', initialTheme);
+
+            const toggleBtn = document.getElementById('theme-toggle');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+
+            // Profile hover swap using local assets
             const avatar = document.querySelector('.avatar');
             const profileImg = document.getElementById('profile-img');
-            
-            // Set initial image (front view)
-            profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop';
-            
-            // Create second image for hover (side view)
-            const sideViewImg = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop&rot=90';
-            
-            // Add hover effect
-            avatar.addEventListener('mouseenter', function() {
-                profileImg.src = sideViewImg;
-            });
-            
-            avatar.addEventListener('mouseleave', function() {
-                profileImg.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop';
-            });
+            if (avatar && profileImg) {
+                const frontImg = 'assets/profile2.png';
+                const sideViewImg = 'assets/profile3.png';
+                profileImg.src = frontImg;
+                avatar.addEventListener('mouseenter', function() {
+                    profileImg.src = sideViewImg;
+                });
+                avatar.addEventListener('mouseleave', function() {
+                    profileImg.src = frontImg;
+                });
+            }
         });
     </script>
 </body>

@@ -1,7 +1,9 @@
         :root {
+            /* Color tokens (dark as default) */
             --primary-bg: #0f0f11;
             --secondary-bg: #1a1a1d;
             --text-color: #ffffff;
+            --muted-text: #b8b8bf;
             --accent-color: #7e6cff;
             --accent-gradient: linear-gradient(135deg, #7e6cff, #5d4dff);
             --border-color: #2d2d32;
@@ -9,6 +11,51 @@
             --hover-bg: #2f2f35;
             --success-color: #4ade80;
             --shadow-color: rgba(126, 108, 255, 0.2);
+
+            /* Typography */
+            --font-sans: 'Inter var', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+            /* Radii */
+            --radius-xs: 6px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Spacing scale */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-7: 32px;
+            --space-8: 40px;
+            --space-9: 48px;
+
+            /* Focus ring */
+            --ring-color: rgba(126, 108, 255, 0.6);
+            --ring-offset: 2px;
+            --ring-width: 2px;
+
+            /* Elevation */
+            --elevation-1: 0 6px 18px rgba(0,0,0,0.25);
+            --elevation-2: 0 12px 28px rgba(0,0,0,0.28);
+        }
+
+        /* Light theme overrides */
+        [data-theme="light"] {
+            --primary-bg: #f7f8fb;
+            --secondary-bg: #ffffff;
+            --text-color: #0e0f12;
+            --muted-text: #5b5f6b;
+            --accent-color: #5d4dff;
+            --accent-gradient: linear-gradient(135deg, #6b5bff, #4b3fff);
+            --border-color: #e6e8ef;
+            --card-bg: #ffffff;
+            --hover-bg: #f2f4f9;
+            --shadow-color: rgba(93, 77, 255, 0.18);
         }
 
         * {
@@ -17,22 +64,82 @@
             box-sizing: border-box;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: var(--font-sans);
             background: var(--primary-bg);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 24px;
+            padding: var(--space-6);
             min-height: 100vh;
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(126, 108, 255, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(126, 108, 255, 0.03) 0%, transparent 20%);
         }
 
+        ::selection {
+            background: rgba(126, 108, 255, 0.25);
+            color: var(--text-color);
+        }
+
+        :where(button, a, input, textarea, select):focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 var(--ring-width) var(--ring-color), 0 0 0 calc(var(--ring-width) + var(--ring-offset)) rgba(0,0,0,0.25);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        /* Top navigation */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 2px 20px;
+            margin-bottom: var(--space-4);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .brand-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+
+        .brand-name { opacity: 0.9; }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 6px;
+        }
+
+        .theme-toggle:hover { background: var(--hover-bg); transform: translateY(-1px); }
+
+        [data-theme="light"] .theme-toggle .fa-sun { opacity: 1; }
+        [data-theme="light"] .theme-toggle .fa-moon { opacity: 0.35; }
+        [data-theme="dark"] .theme-toggle .fa-moon { opacity: 1; }
+        [data-theme="dark"] .theme-toggle .fa-sun { opacity: 0.35; }
 
         header {
             text-align: center;
@@ -41,7 +148,7 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 1.3rem + 2vw, 2.8rem);
             font-weight: 700;
             margin-bottom: 12px;
             background: var(--accent-gradient);
@@ -50,6 +157,10 @@
             background-clip: text;
             letter-spacing: -0.5px;
         }
+
+        h2 { font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.8rem); font-weight: 700; }
+        h3 { font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem); font-weight: 600; }
+        p { color: var(--text-color); opacity: 0.95; }
 
         .subtitle {
             font-size: 1.15rem;
@@ -61,13 +172,13 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-bottom: 48px;
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
         }
 
         .bento-item {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 28px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--border-color);
@@ -76,6 +187,7 @@
             backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
+            animation: fadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         .bento-item::before {
@@ -85,7 +197,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 1px;
             background: linear-gradient(45deg, 
                 rgba(126, 108, 255, 0.1), 
@@ -473,21 +585,25 @@
         }
 
         .action-btn {
-            background: none;
-            border: none;
+            background: transparent;
+            border: 1px solid var(--border-color);
             cursor: pointer;
             color: var(--text-color);
-            opacity: 0.8;
+            opacity: 0.9;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 8px;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             font-size: 1.1rem;
         }
 
         .action-btn:hover {
             opacity: 1;
-            background: rgba(126, 108, 255, 0.1);
-            transform: scale(1.1);
+            background: rgba(126, 108, 255, 0.12);
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .action-btn:active {
+            transform: translateY(0) scale(0.99);
         }
 
         /* Wave Emoji Animation */
@@ -507,6 +623,11 @@
             40% { transform: rotate(20deg); }
             60% { transform: rotate(-15deg); }
             80% { transform: rotate(10deg); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Detail Text Animation */
@@ -557,7 +678,7 @@
             }
             
             h1 {
-                font-size: 2.4rem;
+                font-size: clamp(1.8rem, 1.3rem + 1.2vw, 2.4rem);
             }
             
             .avatar {
@@ -650,7 +771,7 @@
             }
             
             h1 {
-                font-size: 2.1rem;
+                font-size: clamp(1.6rem, 1.25rem + 1.2vw, 2.1rem);
             }
             
             .bento-item {
